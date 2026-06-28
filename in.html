@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高機能お絵かきアプリ</title>
+    <!-- 外部のスタイルシート(CSS)を読み込む -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>お絵かきキャンバス</h1>
+    <div class="main-container">
+        <!-- 上部の横長ツールバー -->
+        <div class="toolbar">
+            <button id="tSelect" class="active">選択・移動</button>
+            <button id="tDraw">手書き</button>
+            <button id="tEraser">消しゴム</button>
+            <button id="tRect">四角</button>
+            <button id="tText">テキスト</button>
+            
+            <div class="tool-item">
+                <label for="color">色：</label>
+                <input type="color" id="color" value="#000000">
+            </div>
+            <div class="tool-item">
+                <label for="width">太さ/サイズ：</label>
+                <input type="range" id="width" min="1" max="50" value="5">
+                <span id="widthNum">5</span>px
+            </div>
+            
+            <label class="file-input-label">📷 背景写真<input type="file" id="load" accept="image/*"></label>
+            <button id="delBtn">選択を消去</button>
+            <button id="saveW" class="btn-save-white">背景付き保存</button>
+            <button id="saveT" class="btn-save-trans">背景透過保存</button>
+            <button id="clearBtn">全部消す</button>
+        </div>
+
+        <!-- お絵かきエリア -->
+        <div class="canvas-container">
+            <canvas id="view" width="800" height="500"></canvas>
+        </div>
+    </div>
+
+    <!-- 外部のプログラム(JavaScript)を分割して順番に読み込む -->
+    <script src="script-init.js"></script>
+    <script src="script-render.js"></script>
+    <script src="script-main.js"></script>
+</body>
+</html>
